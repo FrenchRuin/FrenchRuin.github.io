@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://frenchruin.github.io/sitemap-index.xml
+Host: https://frenchruin.github.io
