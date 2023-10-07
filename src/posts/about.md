@@ -1,6 +1,5 @@
-# Hello
+# 안녕하세요 개발자 이재찬입니다.
 
-Welcome to my blog. My name is Ed.<br>
-I'm very interested in the web front-end development.
+평소 공부하는 모습을 보여드리려 만들어보았습니다. 
+Visit [Github repository](https://github.com/FrenchRuin).
 
-Visit my [Github repository](https://github.com/sungik-choi/gatsby-starter-apple).

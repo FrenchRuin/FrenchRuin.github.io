@@ -21,7 +21,7 @@
 		"lint-staged": "lint-staged",
 		"pre-commit": "yarn lint-staged && yarn typecheck",
 		"postinstall": "husky install",
-		"deploy": "gatsby build --prefix-paths && gh-pages -d public -b deploy"
+		"deploy": "gatsby build && gh-pages -d public -b deploy"
 	},
 	"dependencies": {
 		"dark-github-theme": "https://github.com/remorses/dark-github-theme",
@@ -70,6 +70,7 @@
 		"gatsby-plugin-alias-imports": "^1.0.5",
 		"gatsby-plugin-robots-txt": "^1.8.0",
 		"gatsby-plugin-typescript": "^5.10.0",
+		"gh-pages": "^6.0.0",
 		"graphql": "^16.8.1",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.2.2",
@@ -82,7 +83,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/sungik-choi/gatsby-starter-apple.git"
+		"url": "https://github.com/FrenchRuin/FrenchRuin.github.io.git"
 	},
 	"keywords": ["gatsby"],
 	"author": "Sungik Choi <sungik.dev@gmail.com> (http://sungikchoi.com/)",
