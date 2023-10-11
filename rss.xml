@@ -1,4 +1,265 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev_Lee's RSS Feed]]></title><description><![CDATA[Dev_Lee's Blog]]></description><link>https://frenchruin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 10 Oct 2023 12:33:01 GMT</lastBuildDate><item><title><![CDATA[환영합니다!]]></title><description><![CDATA[환영합니다. 개발자 이재찬입니다. 많은 플랫폼을 돌아다니다 정착하게 되었습니다. Velog 에서 Tistory를 거쳐 결국 Github Blog로 전향하게 되었습니다. 원래는 개인 Notion…]]></description><link>https://frenchruin.github.io/blog/greeting/</link><guid isPermaLink="false">https://frenchruin.github.io/blog/greeting/</guid><pubDate>Mon, 09 Oct 2023 03:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;환영합니다. 개발자 이재찬입니다.&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev_Lee's RSS Feed]]></title><description><![CDATA[Dev_Lee's Blog]]></description><link>https://frenchruin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 11 Oct 2023 14:18:53 GMT</lastBuildDate><item><title><![CDATA[Spring과 Spring Boot]]></title><description><![CDATA[시작하기에 앞서 SpringFrameWork를 사용한지는 약 1년정도 되었지만, 개념에 대해서 다시 알아보고자 정리해봅니다. 스프링이란? 스프링은 Java Enterprise Develop…]]></description><link>https://frenchruin.github.io/blog/spring/</link><guid isPermaLink="false">https://frenchruin.github.io/blog/spring/</guid><pubDate>Wed, 11 Oct 2023 03:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;시작하기에 앞서&lt;/h2&gt;
+&lt;p&gt;SpringFrameWork를 사용한지는 약 1년정도 되었지만, 개념에 대해서 다시 알아보고자 정리해봅니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;스프링이란?&lt;/h3&gt;
+&lt;p&gt;스프링은 Java Enterprise Develop을 편하게 도와주는 &lt;strong&gt;&lt;code&gt;오픈소스 경량급 프레임워크&lt;/code&gt;&lt;/strong&gt; 입니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;스프링의 특징&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;IOC (Invertion Of Control)&lt;/code&gt;&lt;/strong&gt; 제어 역전&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;DI (Dependecy Injection)&lt;/code&gt;&lt;/strong&gt; 의존성 주입&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;AOP (Aspect-Oriented Programming)&lt;/code&gt;&lt;/strong&gt; 관점 지향 프로그래밍&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;IOC ?&lt;/h3&gt;
+&lt;p&gt;객체 생성 부터 Life Cycle까지 Object에 대한 제어권이 &lt;strong&gt;&lt;code&gt;개발자가 아닌 FrameWork&lt;/code&gt;&lt;/strong&gt; 에 존재한다는 의미입니다.&lt;/p&gt;
+&lt;p&gt;예를 들어보자면,&lt;/p&gt;
+&lt;p&gt;과거에는 의존관계를 개발자가 직접 제어했습니다.&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container github-light-theme grvsc-ps-t4tStz&quot; data-language=&quot;java&quot; data-index=&quot;0&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;Repository&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;TestRepository&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;Service&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;TestService&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-9&quot;&gt;TestRepository&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; testRepository &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-9&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-7 grvsc-t4tStz-5&quot;&gt;TestRepository&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;();&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;하지만, &lt;strong&gt;IOC의 특징을 설명하면 다음과 같이 작성됩니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container github-light-theme grvsc-ps-t4tStz&quot; data-language=&quot;java&quot; data-index=&quot;1&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;Service&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;TestService&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-9&quot;&gt;TestRepository&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; testRepository;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;  @&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;Autowired&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;TestService&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-9&quot;&gt;TestRepository&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-11 grvsc-t4tStz-6&quot;&gt;testRepository&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;) {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-7 grvsc-t4tStz-1&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;.testRepository &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-9&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; testRepository;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;  }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;DI ?&lt;/h3&gt;
+&lt;p&gt;의존성이 있는 객체를 직접 생성하거나 제어하는 것이 아니라, 필요한 객체를 외부에서 가져온다는 의미이다.&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container github-light-theme grvsc-ps-t4tStz&quot; data-language=&quot;java&quot; data-index=&quot;2&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;Exam&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-9&quot;&gt;Score&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; score;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;Exam&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;() {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-7 grvsc-t4tStz-1&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;.score &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-9&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-7 grvsc-t4tStz-5&quot;&gt;Score&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;();&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;  }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;ShowScore&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;() {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-7 grvsc-t4tStz-1&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;.score.&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;showScore&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;();&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;  }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Exam 객체에서 ShowScore()가 수행되려면 Socre 클래스가 필요합니다.&lt;/li&gt;
+&lt;li&gt;즉, Exam클래스는 Score클래스의 의존성을 지니고 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;위의 설명은 &lt;strong&gt;결합도가 매우 높은 상태&lt;/strong&gt;입니다. &lt;br&gt;
+&lt;strong&gt;&lt;code&gt;Score 클래스가 수정되면 Exam 클래스도 수정이 되어야 하기 때문입니다.&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;DI를 구현하는 3가지 방법&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Filed에 @Autowired&lt;/li&gt;
+&lt;li&gt;Setter에 @Autowired&lt;/li&gt;
+&lt;li&gt;Constructor에 @Autowired&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;strong&gt;&lt;code&gt;Filed에 @Autowired &lt;/code&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre class=&quot;grvsc-container github-light-theme grvsc-ps-t4tStz&quot; data-language=&quot;java&quot; data-index=&quot;3&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;Exam&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;  @&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;Autowired&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-9&quot;&gt;Score&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; score;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;ShoScore&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;() {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-7 grvsc-t4tStz-1&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;.score.&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;ShowScore&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;();&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;  }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;가독성이 높고 편리합니다.&lt;/li&gt;
+&lt;li&gt;final을 선언할 수 없고, 불변성이 없으며, 외부에서 주입할 수 있는 방법이 없습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;strong&gt;&lt;code&gt;Setter에 @Autowired &lt;/code&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre class=&quot;grvsc-container github-light-theme grvsc-ps-t4tStz&quot; data-language=&quot;java&quot; data-index=&quot;4&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;Exam&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-9&quot;&gt;Score&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; score;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    @&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;Autowired&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;setExam&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-9&quot;&gt;Score&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-11 grvsc-t4tStz-6&quot;&gt;score&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;) {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-7 grvsc-t4tStz-1&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;.score &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-9&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; score;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;ShowScore&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;() {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-7 grvsc-t4tStz-1&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;.score.&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;ShowScore&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;();&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Runtime시에 의존성을 주입할 수 있는 낮은 결합성의 특징을 가집니다.&lt;/li&gt;
+&lt;li&gt;하지만 NPE 발생 우려가 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;strong&gt;&lt;code&gt;Constructor에 @Autowired &lt;/code&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre class=&quot;grvsc-container github-light-theme grvsc-ps-t4tStz&quot; data-language=&quot;java&quot; data-index=&quot;5&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;Exam&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-9&quot;&gt;Score&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; score;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    @&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;Autowired&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;Exam&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-9&quot;&gt;Score&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-11 grvsc-t4tStz-6&quot;&gt;score&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;) {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-7 grvsc-t4tStz-1&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;.score &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-9&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; score;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-5 grvsc-t4tStz-9&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;ShowScore&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;() {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-7 grvsc-t4tStz-1&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;.score.&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-10 grvsc-t4tStz-5&quot;&gt;ShowScore&lt;/span&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;();&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;    }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;grvsc-tiszgT-1 grvsc-t4tStz-1&quot;&gt;}​&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Null을 주입하지 않는 이상 NPE 발생 우려는 없습니다.&lt;/li&gt;
+&lt;li&gt;의존관계 주입 없이는 Controller의 객체를 생성할 수 없습니다. [NPE 방지]&lt;/li&gt;
+&lt;li&gt;final 선언 가능&lt;/li&gt;
+&lt;li&gt;순한 의존성&lt;/li&gt;
+&lt;li&gt;Test 코드 작성시 용이합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;AOP ?&lt;/h3&gt;
+&lt;p&gt;OOP를 보완하는 프로그래밍 기법이다.&lt;/p&gt;
+&lt;p&gt;공통 기능들을 모듈화 하여, 필요할 때 연결하여 유지보수 또는 재사용에 용이함 &lt;br&gt;
+모듈화란, 공통된 로직이나 기능을 하나의 단위로 묶는것을 일컫는다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;공통된 부분을 쉽게 프로그래밍&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 443px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 112.88343558282207%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAIAAACEf/j0AAAACXBIWXMAAAsTAAALEwEAmpwYAAADwElEQVR42p1U22scVRifP0EpIqVg0kIfJfVvUARfjD5VDBRhLRSkEfsgVVHbWsHLS1sQKaaXpEmaC8bVxu5mk81mk3ZvcZdkE3PZtZvszn3m7Fx37jM7fjODoV7Igx+Hw3d+5/ed75zvcjBBENptBBMMjmM7nY7v+6qqIp4XYQ+hgIDaAHY6Gs/zERNsQDCOZQm8RZFUoBCEoijAkySJIkmCwAHEW7BLAqjIMkAURdE0xTIMy7JYq9lcWlh4+GtiZWU5l8vJshzxKr+t/hz/aSWbXcosbm9tRSeWioXk3FwqmayUVxt7+5iWOuvffsYf7fVHe6wfnjVqs4Hx4oJx9Hmrt8c43uM8d0R8+3QX3rI7qw4dNYaP68MnzKEjQuIs9v3McuzrqcHr8cEb8dhXE+XtfTBGjSY1FmcmHjCTs8xonExlgzdzdXXttrY5om3eMzZuibUUln7/2nDv6YlTscm+2N0TbzVSheCGeFlaPKNkY0r2XTUzwJe+AXCjoXw2KVydUb6ckT+dVMaXECZ/e9V6/WV74E1n4A2t/xUttww84UmBu/8amurnp/rR/VfJuU8AXK9xHw9tXRqpXx6pXby1O5L8A5NdF/IghAN5nuG6wDMsR9S7sukrli8avqIHoOtYril7lhIN2+xg/n9JtwsB8jVNg5QcLP8tWPfv8rSxKIr1eh0Uz/Mi8B9ymGfIeaPROMzzIca1Wm16evp/GiOE1tbWDjOGhwmhgIIQr+t6dGFYwgx9AlsRCPGDZjjgS6KIMQwDpc/z4Aa1Wi1FUYHHcRw0AFChjQCEqg5PlJqtJsMygFOhYBRFFvO5+fl0sVgslytq2JJwYi73KLOYzucLj//qFlmSNqrVTDabXkhvb/2OExRG0zSOEziOw0mB55DHh56hQ2GXJMnIM8xEKECPGhOzLdO1TQ+qxzZtU/eiCjNM03Js2zEtW9NNUMIKsx3D8CzLsy1b1x3LxHTDIliZE3VeNmheMiwbeJapM+Qe4ggB0QJH27YVxZxVFLrTYTSNU1RR07H2TqIw9kFh/MONB1d2El9IdA14+Sp5bSx/fezRnV+q9xI7OBt8L8be/s6VyysXLpQufrT7+SU8Hsc6mUFvvLf740ve1IvG3Rf0xjzwbj5k3vkOvTeEzt3kztwg85vBH6YmktbJk15fn3uqzzl2TD1/HvIslSvrxdVKE6dst+u6QRmLQnuzug6x8VzHccxu1/PDMmERelwqPWm1YGV7Hga7kAkIsm3bB6UDOnygUZyeFsChNkzTjCrsT5Twur5fLePXAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;AOP&quot;
+        title=&quot;&quot;
+        src=&quot;/static/11b5b6dbbdf4eb907891637a4536f482/a120c/aop.png&quot;
+        srcset=&quot;/static/11b5b6dbbdf4eb907891637a4536f482/222b7/aop.png 163w,
+/static/11b5b6dbbdf4eb907891637a4536f482/ff46a/aop.png 325w,
+/static/11b5b6dbbdf4eb907891637a4536f482/a120c/aop.png 443w&quot;
+        sizes=&quot;(max-width: 443px) 100vw, 443px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;각 클래스에 공통된 부분들이 있습니다.&lt;/li&gt;
+&lt;li&gt;만약, Class A의 주황색 부분을 수정한다면, Class B와 C의 주황색도 수정해야 하는 번거로움이 있습니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;흩어진 관심사&lt;/strong&gt; 라고 표현합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;위와 같은 상황을 줄이고자 하는 개념이 AOP 입니다.&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;AOP의 경우 중요한 개념이기 때문에 추후에 더 깊게 다루도록 하겠습니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;출처 :: &lt;a href=&quot;https://yjkim-dev.tistory.com/2&quot;&gt;https://yjkim-dev.tistory.com/2&lt;/a&gt;&lt;/p&gt;
+&lt;style class=&quot;grvsc-styles&quot;&gt;
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line &gt; * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: &apos; &apos;;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
+    content: &apos; &apos;;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+  .github-light-theme {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .github-light-theme .grvsc-tiszgT-1 { color: #000000; }
+  .github-light-theme .grvsc-tiszgT-5 { color: #D73A49; }
+  .github-light-theme .grvsc-tiszgT-10 { color: #6F42C1; }
+  .github-light-theme .grvsc-tiszgT-7 { color: #005CC5; }
+  .github-light-theme .grvsc-tiszgT-11 { color: #E36209; }
+  .github-light-theme .grvsc-line-highlighted::before {
+    background-color: var(--grvsc-line-highlighted-background-color, rgba(0, 0, 0, 0.05));
+    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(0, 0, 0, 0.2));
+  }
+  body[data-theme=dark] .grvsc-ps-t4tStz { color: #ffffff; }
+  body[data-theme=dark] .grvsc-ps-t4tStz .grvsc-t4tStz-1 { color: #FFFFFF; }
+  body[data-theme=dark] .grvsc-ps-t4tStz .grvsc-t4tStz-9 { color: #EB7E81; }
+  body[data-theme=dark] .grvsc-ps-t4tStz .grvsc-t4tStz-5 { color: #BB97E7; }
+  body[data-theme=dark] .grvsc-ps-t4tStz .grvsc-t4tStz-6 { color: #F39961; }
+  body[data-theme=dark] .grvsc-ps-t4tStz .grvsc-line-highlighted::before {
+    background-color: var(--grvsc-line-highlighted-background-color, rgba(0, 0, 0, 0.05));
+    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(0, 0, 0, 0.2));
+  }
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[환영합니다!]]></title><description><![CDATA[환영합니다. 개발자 이재찬입니다. 많은 플랫폼을 돌아다니다 정착하게 되었습니다. Velog 에서 Tistory를 거쳐 결국 Github Blog로 전향하게 되었습니다. 원래는 개인 Notion…]]></description><link>https://frenchruin.github.io/blog/greeting/</link><guid isPermaLink="false">https://frenchruin.github.io/blog/greeting/</guid><pubDate>Mon, 09 Oct 2023 03:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;환영합니다. 개발자 이재찬입니다.&lt;/h2&gt;
 &lt;h3&gt;많은 플랫폼을 돌아다니다 정착하게 되었습니다.&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Velog 에서 Tistory를 거쳐 결국 Github Blog로 전향하게 되었습니다.&lt;/p&gt;
