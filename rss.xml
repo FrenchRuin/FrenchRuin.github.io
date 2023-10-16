@@ -1,4 +1,194 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev_Lee's RSS Feed]]></title><description><![CDATA[Dev_Lee's Blog]]></description><link>https://frenchruin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 11 Oct 2023 14:18:53 GMT</lastBuildDate><item><title><![CDATA[Spring과 Spring Boot]]></title><description><![CDATA[시작하기에 앞서 SpringFrameWork를 사용한지는 약 1년정도 되었지만, 개념에 대해서 다시 알아보고자 정리해봅니다. 스프링이란? 스프링은 Java Enterprise Develop…]]></description><link>https://frenchruin.github.io/blog/spring/</link><guid isPermaLink="false">https://frenchruin.github.io/blog/spring/</guid><pubDate>Wed, 11 Oct 2023 03:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;시작하기에 앞서&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev_Lee's RSS Feed]]></title><description><![CDATA[Dev_Lee's Blog]]></description><link>https://frenchruin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 16 Oct 2023 12:38:28 GMT</lastBuildDate><item><title><![CDATA[Distpatcher_Servlet 개념과 동작과정]]></title><description><![CDATA[Dispatcher_Servlet ? 디스패처 서블릿이란? HTTP 프로토콜로 들어오는 모든 요청을 가장 먼저 받아 적합한 컨트롤러에 위임해주는 Front Controller 디스패처 서블릿 장점 web.xml…]]></description><link>https://frenchruin.github.io/blog/dispatcher/</link><guid isPermaLink="false">https://frenchruin.github.io/blog/dispatcher/</guid><pubDate>Mon, 16 Oct 2023 03:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Dispatcher_Servlet ?&lt;/h2&gt;
+&lt;h3&gt;디스패처 서블릿이란?&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;HTTP 프로토콜로 들어오는 모든 요청을 가장 먼저 받아 적합한 컨트롤러에 위임해주는 Front Controller&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;디스패처 서블릿 장점&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;web.xml&lt;/strong&gt;의 역할을 상당히 축소시켜주었습니다. &lt;strong&gt;디스패처 서블릿이 해당 어플리케이션으로 들어오는 모든 요청을 핸들링&lt;/strong&gt; 해줄 뿐 아니라, &lt;strong&gt;공통 작업을 처리&lt;/strong&gt;해주면서 상당히 간단해졌습니다.&lt;/p&gt;
+&lt;h3&gt;정적자원 (Static Resources) 의 처리&lt;/h3&gt;
+&lt;p&gt;디스패처 서블릿이 모든 요청을 처리하다보니, 정적자원(HTML,CSS,Image...)의 요청마저 가로채기 때문에 정적자원을 제대로 불러오지 못하는 상황이 발생하곤 했습니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;해결방안으로 요청에 대한 컨트롤러가 없을 경우에 2차적으로 설정된 자원 경로를 탐색하여 정적자원을 탐색합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;디스패처 서블릿의 동작 과정&lt;/h2&gt;
+&lt;p&gt;위에서 설명한대로 &lt;strong&gt;적합한 컨트롤러와 메소드를 찾아 요청을 위임합니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.62576687116564%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABlElEQVR42nVSi27UMBDM//8QH4BUcaUSpYgLFC4kx8V52PE77/SGtdu7CkEtjS3Z69nZ2U3wn3U+n8MGYx3SosXN50dkTGIYBlhr4b2/xvZ9D6UUtNbxPbkQjPOCed3iuW1bDFzWFX6c4YYJ/Tjh/EIyzzOenrb4b5omrOuCZVkwjiMSawwkZbjd53j3/hNu0yM4FzGr6CR+nATuH3+jqBUMxfI8BftyA/7tDpI3EKxA/fUD2v0OmuVIvHNwziOvOtynGbJSYOiHWJYjCN3jcGQwPakiievg4HmJUdZY5gmDd7CihiN4q59LfnHuYuA/nq5UuqmP6IrvkGVGAuz1x+g0DPtFyNBrgSTULrRHpQjSQ1Mjnk1WsQEzeRoILanSpwN0lZOy8ZrMyxZVege2/wjTnIgwZO84JDtBViWcNaTARWjybKIGBMK3pmFZ1tdmkbgkXHQdQ13/RNMcyHgZzQ8I6i94teNvS7iq8HDY4SHboeQFkpBdWYVWt+CaUzNcnKeA8BbIwhi9taw3aLsKjWBQRuIPQr+y+xisYp0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;dispatcher_servlet&quot;
+        title=&quot;&quot;
+        src=&quot;/static/85002453c3a50cc3f399a4b01f53d600/a6d36/dispatcherservletAction.png&quot;
+        srcset=&quot;/static/85002453c3a50cc3f399a4b01f53d600/222b7/dispatcherservletAction.png 163w,
+/static/85002453c3a50cc3f399a4b01f53d600/ff46a/dispatcherservletAction.png 325w,
+/static/85002453c3a50cc3f399a4b01f53d600/a6d36/dispatcherservletAction.png 650w,
+/static/85002453c3a50cc3f399a4b01f53d600/e548f/dispatcherservletAction.png 975w,
+/static/85002453c3a50cc3f399a4b01f53d600/6be49/dispatcherservletAction.png 1160w&quot;
+        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;클라이언트의 요청을 디스패처 서블릿이 받음.&lt;/li&gt;
+&lt;li&gt;요청 정보를 통해 요청을 위임할 컨트롤러를 찾음.&lt;/li&gt;
+&lt;li&gt;요청을 컨트롤러로 위임할 핸들러 어댑터를 찾아서 전달.&lt;/li&gt;
+&lt;li&gt;핸들러 어댑터가 컨트롤러로 요청을 위임.&lt;/li&gt;
+&lt;li&gt;비즈니스 로직을 처리.&lt;/li&gt;
+&lt;li&gt;컨트롤러가 반환값을 반환.&lt;/li&gt;
+&lt;li&gt;핸들러 어댑터가 반환값을 처리.&lt;/li&gt;
+&lt;li&gt;서버스이 응답을 클라이언트로 반환.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;디스패처 서블릿을 통해 요청을 처리할 컨트롤러를 찾아서 위임하고 결과를 받아온다고 생각하시면 됩니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3&gt;1. 클라이언트의 요청을 디스패처 서블릿이 받음.&lt;/h3&gt;
+&lt;p&gt;서블릿 컨텍스트(웹 컨텍스트)에서 필터들을 지나 Spring Context에서 Dispatcher Servlet이 가장 먼저 요청을 받게됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 38.036809815950924%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABf0lEQVR42n1S7W6jMBDk/V+q0qmKEjX0oA2kSfkw2AYDxSEYkvSaMrc4/dOrdJZGO7J3xzteO/hnKT0gUT1YdUNaGbB6wHNc4G7p494N4e85hL4gextt7oyYkDc9nGmavgmWmpLqE/L2TAUXEjWo8hQ1n5Eg+L3G4tcd3OUC/nqFVmZoBEND57yo4Xzvb4I6nBCpATve0q0GeXVEn23wLkJc5BZj/oz21bU4Jh7OIqC9DS58g1IKOH7gotISHx9XTJ+fKFqDnTggZLWNWXmA2j2iCFbQkY+Bh3iLPLSxR3yLlni9f8Qx9UlQwgnzNXUSQFUKB62xTTi8qIDo/iDMWvgvDMxfIPPuIUm0CFdo9q6F2CyhXh6gYx99+nQTPL0bjGeD6/VqLZc0lJ3sEBWdjYw61MkTWdta6yMPYCjOfCCrPZtjCMO+BH9OeURczYMZkTZnMNWhs0WBLRzJ5o0Hlo/0BJaTuBTip2BFHab0XbLa3EBDyYUCl/9HLkpw1eIvjIhQ+j8gVXgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;dispatcher_servlet&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a0cbad36a56eb1a6125b22407810daaa/a6d36/dispatcherservletAction_1.png&quot;
+        srcset=&quot;/static/a0cbad36a56eb1a6125b22407810daaa/222b7/dispatcherservletAction_1.png 163w,
+/static/a0cbad36a56eb1a6125b22407810daaa/ff46a/dispatcherservletAction_1.png 325w,
+/static/a0cbad36a56eb1a6125b22407810daaa/a6d36/dispatcherservletAction_1.png 650w,
+/static/a0cbad36a56eb1a6125b22407810daaa/e548f/dispatcherservletAction_1.png 975w,
+/static/a0cbad36a56eb1a6125b22407810daaa/21b4d/dispatcherservletAction_1.png 1280w&quot;
+        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;2. 요청 정보를 통해 요청을 위임할 컨트롤러를 찾음.&lt;/h3&gt;
+&lt;p&gt;어느 컨트롤러가 요청을 처리할 수 있는지 식별을 해야하는데, 그것을 &lt;strong&gt;Hanlder Mapping&lt;/strong&gt;이 해결합니다.&lt;/p&gt;
+&lt;p&gt;흔하게, &lt;code&gt;@Controller&lt;/code&gt; 어노테이션으로 RequestMappingHandlerMapping으로 처리하는데, 이는 @Controller로 작성된 모든 컨트롤러를 찾아 &lt;strong&gt;HashMap으로 &amp;#x3C;요청 정보, 관리 대상&gt;&lt;/strong&gt; 으로 관리합니다.&lt;/p&gt;
+&lt;p&gt;여기서 요청이오면 (HTTP Method, URI...) 등으로 요청정보를 만들고, 인터셉터등을 포함하기 위해서 &lt;code&gt;HandlerExecutionChain&lt;/code&gt; 으로 감쌉니다.&lt;/p&gt;
+&lt;h3&gt;3. 요청을 컨트롤러로 위임할 핸들러 어댑터를 찾아서 전달.&lt;/h3&gt;
+&lt;p&gt;HandlerAdapter라는 어댑터 인터페이스를 통해 &lt;strong&gt;어댑터 패턴을 적용함으로써 컨트롤러의 구현 방식에 상관없이 요청을 위임&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;4. 핸들러 어댑터가 컨트롤러로 요청을 위임.&lt;/h3&gt;
+&lt;p&gt;핸들러 어댑터가 컨트롤러로 요청을 위임한 전/후에 &lt;strong&gt;공통적인 전/후 처리 과정이 필요&lt;/strong&gt;합니다.&lt;/p&gt;
+&lt;h3&gt;5. 비즈니스 로직을 처리.&lt;/h3&gt;
+&lt;p&gt;컨트롤러는 서비스를 호출 하고 직접 작성한 비즈니스 로직이 흘러갑니다.&lt;/p&gt;
+&lt;h3&gt;6. 컨트롤러가 반환값을 반환.&lt;/h3&gt;
+&lt;p&gt;비즈니스 로직이 처리된 후에는 컨트롤러가 반환값을 반환합니다. 요즘은 프론트엔드와 백엔드를 분리하고, MSA로 가기에 주로 &lt;code&gt;ResponseEntity&lt;/code&gt;를 반환합니다.&lt;/p&gt;
+&lt;h3&gt;7. 핸들러 어댑터가 반환값을 처리.&lt;/h3&gt;
+&lt;p&gt;HandlerAdapter는 컨트롤러부터 받은 응답을 응답 처리기인 ReturnValueHandler가 후처리 한 후에, 디스패처 서블릿으로 돌려줍니다. 만약 컨트롤러가 ResponseEntity를 반환하면 응답객체를 직렬화하여 응답상태를 설정, View를 반환 하면 ViewResolver를 통해 View를 반환합니다.&lt;/p&gt;
+&lt;h3&gt;8. 서버의 응답을 클라이언트로 반환.&lt;/h3&gt;
+&lt;p&gt;Dispatcher Servlet을 통해 반환되는 응답은 다시 Filter들을 거쳐 Client에게 반환됩니다.
+여기서 응답이 Data라면 그대로 반환되지만, 응답이 화면이라면 View이름에 걸맞게 ViewResolver가 적절한 화면을 내려줍니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;마무리하면서&lt;/h2&gt;
+&lt;p&gt;스프링을 공부하던 중에 디스패처 서블릿의 개념을 공부해보았습니다.
+소스코드로 분석하신 분도 계시던데 정말 대단하다는 생각이 들었습니다.&lt;/p&gt;
+&lt;p&gt;여러분께 도움이 되었으면 좋겠습니다.&lt;/p&gt;
+&lt;p&gt;참조 :: &lt;a href=&quot;https://mangkyu.tistory.com/18&quot;&gt;https://mangkyu.tistory.com/18&lt;/a&gt;&lt;/p&gt;
+&lt;style class=&quot;grvsc-styles&quot;&gt;
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line &gt; * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: &apos; &apos;;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
+    content: &apos; &apos;;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Spring과 Spring Boot]]></title><description><![CDATA[시작하기에 앞서 SpringFrameWork를 사용한지는 약 1년정도 되었지만, 개념에 대해서 다시 알아보고자 정리해봅니다. 스프링이란? 스프링은 Java Enterprise Develop…]]></description><link>https://frenchruin.github.io/blog/spring/</link><guid isPermaLink="false">https://frenchruin.github.io/blog/spring/</guid><pubDate>Wed, 11 Oct 2023 03:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;시작하기에 앞서&lt;/h2&gt;
 &lt;p&gt;SpringFrameWork를 사용한지는 약 1년정도 되었지만, 개념에 대해서 다시 알아보고자 정리해봅니다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;스프링이란?&lt;/h3&gt;
