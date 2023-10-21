@@ -1,4 +1,249 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev_Lee's RSS Feed]]></title><description><![CDATA[Dev_Lee's Blog]]></description><link>https://frenchruin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 16 Oct 2023 12:38:28 GMT</lastBuildDate><item><title><![CDATA[Distpatcher_Servlet 개념과 동작과정]]></title><description><![CDATA[Dispatcher_Servlet ? 디스패처 서블릿이란? HTTP 프로토콜로 들어오는 모든 요청을 가장 먼저 받아 적합한 컨트롤러에 위임해주는 Front Controller 디스패처 서블릿 장점 web.xml…]]></description><link>https://frenchruin.github.io/blog/dispatcher/</link><guid isPermaLink="false">https://frenchruin.github.io/blog/dispatcher/</guid><pubDate>Mon, 16 Oct 2023 03:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Dispatcher_Servlet ?&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev_Lee's RSS Feed]]></title><description><![CDATA[Dev_Lee's Blog]]></description><link>https://frenchruin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 21 Oct 2023 12:48:12 GMT</lastBuildDate><item><title><![CDATA[CS 지식모음 (1)]]></title><description><![CDATA[CS 지식모음 (1) 혼자 공부하기 위해 모아온 CS 지식 모음집 프로세스 (Process) 메모리상 실행중인 프로그램을 말하며 디스크로부터 메모리에적재되 CPUT…]]></description><link>https://frenchruin.github.io/blog/csInfo_1/</link><guid isPermaLink="false">https://frenchruin.github.io/blog/csInfo_1/</guid><pubDate>Sat, 21 Oct 2023 03:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;CS 지식모음 (1)&lt;/h1&gt;
+&lt;h2&gt;혼자 공부하기 위해 모아온 CS 지식 모음집&lt;/h2&gt;
+&lt;h3&gt;프로세스 (Process)&lt;/h3&gt;
+&lt;p&gt;메모리상 실행중인 프로그램을 말하며 디스크로부터 메모리에적재되 CPUT 할당을 받을 수 있는것. &lt;br&gt;
+프로세스는 최소 하나의 스레드를 보유하며 별도의 주소공간을 독립적으로 할당받음.&lt;/p&gt;
+&lt;h3&gt;스레드 (Thread)&lt;/h3&gt;
+&lt;p&gt;프로세스 내에 하나의 실행 단위 &lt;br&gt;
+프로세스내에서 스레드는 자원을 공유할 수 있고, 하나의 프로세스에 다수의 스레드를 실행 단위로 구분한것을 &lt;strong&gt;멀티스레드&lt;/strong&gt;라 함.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;멀티프로세스가 아닌 멀티스레드로 처리하는 이유?&lt;/strong&gt;&lt;br&gt;
+멀티스레드로 작업시 멀티 프로세스보다 공유하는 통신 비용이 적고 프로세스 생성 후 자원을 할당하는 시스템 콜이 감소 할 수 있기때문!&lt;br&gt;
+대신 공유자원으로 인한 동기화를 고려해야함.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;교착상태 (DeadLock)&lt;/h3&gt;
+&lt;p&gt;프로세스가 자원을 얻지 못해 다음 처리를 못하는 상태에 빠진 것.&lt;br&gt;
+한정된 자원보다 더 사용하려고 할때 발생하며 교착상태 발생 필수 조건은 아래와 같다.&lt;br&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;상호배제 : 필요로 하는 자원에 대해 배타적 통제권 요구&lt;/li&gt;
+&lt;li&gt;점유대기 : 할당된 자원을 가진 상태에서 다른 자원 기다림&lt;/li&gt;
+&lt;li&gt;비선점 : 어떤 자원의 사용이 끝날때까지 해당 자원을 뺏을 수 없음&lt;/li&gt;
+&lt;li&gt;순환대기 : 순환적으로 다음 프로세스가 요구하는 자원을 가지고 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;RESTful API&lt;/h3&gt;
+&lt;p&gt;API 설계의 중심엔 자원이 있고, HTTP Method를 통해 자원을 처리하도록 설계하는 방식&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;리소스와 행위를 명시적이고 직관적으로 분리&lt;/li&gt;
+&lt;li&gt;GET, POST, PUT, PATCH, DELETE로 표현&lt;/li&gt;
+&lt;li&gt;Header와 Body를 명확히 분리해서 사용 [ Entity 내용은 Body에 담아서 요청 ]&lt;/li&gt;
+&lt;li&gt;API 버전 관리&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;장점&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;멀티프롤랫폼 지원 및 연동에 유리&lt;/li&gt;
+&lt;li&gt;기존 웹 HTTP 인프라를 그대로 사용&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;단점&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;메소드가 4가지만 존재함&lt;/li&gt;
+&lt;li&gt;HTTP 통신 프로토콜에 대해서만 지원&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;HTTP 프로토콜 (Protocol)&lt;/h3&gt;
+&lt;p&gt;서버/클라이언트 모델을 따라 데이터를 주고 받기 위한 프로토콜&lt;br&gt;
+TCP/IP 위에서 동작하며 Method, Header, Body, Path 등으로 Request가 구성 &lt;br&gt;
+도청, 변조가 가능하여 보안적으로 안전한 Https를 사용하기도 함&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Response Code&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;100번대 : 정보확인&lt;/li&gt;
+&lt;li&gt;200번대 : 성공
+&lt;ul&gt;
+&lt;li&gt;200 - 서버 요청 처리 성공&lt;/li&gt;
+&lt;li&gt;201 - 요청 접수 후 새 리소스 작성&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;300번대 : 리다이렉트
+&lt;ul&gt;
+&lt;li&gt;301 - 요청 페이지가 새 위치로 영구적 이동&lt;/li&gt;
+&lt;li&gt;302 - 임시이동 요청자&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;400번대 : 클라이언트 오류
+&lt;ul&gt;
+&lt;li&gt;400 - 클라이언트 오류&lt;/li&gt;
+&lt;li&gt;401 - 권한 없음&lt;/li&gt;
+&lt;li&gt;404 - 서버에 요청한 리소스를 찾을 수 없음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;500번대 : 서버측 오류&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;HTTP vs HTTPS&lt;br&gt;
+HTTP 와 HTTPS의 차이점은 HTTP통신하는 소켓부분을 SSL이라는 프로토콜 존재 여부&lt;br&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTP 동작순서 : TCP --&gt; HTTP&lt;/li&gt;
+&lt;li&gt;HTTPS 동작순서 : TCP --&gt; SSL --&gt; HTTP&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;SSL을 사용하지 않는 경우는 암호화로 인해 속도저하가 발생하기 떄문&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;SSL ( Secure Socket Layer )&lt;/h3&gt;
+&lt;p&gt;보안 프로토콜을 통해 클라이언트와 서버가 통신 &lt;br&gt;
+전송된 모든 데이터가 비공계로 유지 (TLS - 전송계층보안) &lt;br&gt;
+SSL 암호화를 통해 연결을 보호하고 데이터의 변조를 방지하는 역할&lt;/p&gt;
+&lt;h3&gt;웹 통신의 흐름 _ 1&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;주소창에 URL을 입력 후 Enter를 누르면 서버에 요청이 전송&lt;/li&gt;
+&lt;li&gt;해당 페이지 PATH에 존재하는 자원들을 응답으로 보내줌&lt;/li&gt;
+&lt;li&gt;브라우저는 자우너이 담긴 HTML과 CSS를 W3C 명세에 따라 해석&lt;/li&gt;
+&lt;li&gt;해석한 렌더링 엔진은 HTML 파싱작업을 시작하며 DOM 트리를 구축&lt;/li&gt;
+&lt;li&gt;CSS 파싱 작업을 시작하며 CSS가 담긴정보를 스타일 구조체로 생성&lt;/li&gt;
+&lt;li&gt;HTML과 CSS를 연결하여 렌더트리를 만들고 시각적 요소를 포함한 형태로 출력을 준비&lt;/li&gt;
+&lt;li&gt;화면 배치를 시작하고 출력 진행&lt;/li&gt;
+&lt;li&gt;이때 브라우저 화면에 표시될때, &quot;배치, 렌더링 과정&quot;은 기다리는 동시에 일부분 먼저 진행하고 화면에 표시&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;웹 통신의 흐름 _ 2&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;브라우저는 DNS 서버로 가서 웹사이트의 진짜 서버주소를 찾음&lt;/li&gt;
+&lt;li&gt;브라우저는 서버에게 웹사이트 사본을 클라이언트에게 보내달라는 HTTP 요청 메세지를 서버로 전송
+&lt;ul&gt;
+&lt;li&gt;메세지 및 클라이언트 사이에 전송된 모든 데이터는 TCP/IP 연결&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HTTP 요청을 받은 서버는 클라이언트 요청을 승인 후 메세지를 클라이언트에게 전송&lt;/li&gt;
+&lt;li&gt;서버는 응답해줄 파일들을 데이터 패킷이라는 작은 덩어리로 브라우저에 전송&lt;/li&gt;
+&lt;li&gt;브라우저는 패킷들을 웹사이트로 조립 후 사용자에게 보여줌&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;GET&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;HEADER 부분에 URL이 담겨 전송&lt;/li&gt;
+&lt;li&gt;URL 공간에 데이터가 담겨 전송되기전에 보안에 취약하고 데이터 크기도 제한적&lt;/li&gt;
+&lt;li&gt;브라우저에서 CACHING 가능&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;POST&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;BODY 부분에 데이터가 담겨서 전송&lt;/li&gt;
+&lt;li&gt;보안면에서 GET보다 뛰어남&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;GET vs POST&lt;/h3&gt;
+&lt;p&gt;GET은 Select의 개념에 가까워 데이터의 리스트 또는 Object 1개를 조회 &lt;br&gt;
+POST는 서버의 상태나 값이 변경되는 작업을 요청 가능&lt;/p&gt;
+&lt;h3&gt;쿠키 ( Cookie )&lt;/h3&gt;
+&lt;p&gt;클라이언트 (브라우저) 로컬에 저장되는 키:밸류 데이터 파일 &lt;br&gt;
+유효시간을 명시 가능하며, 브라우저가 종료되어도 인증은 유지&lt;br&gt;
+최대 300개까지 저장이 가능하며 도메인당 20개의 값을 할당 가능&lt;br&gt;
+자동로그인, 팝업, 더 이상 이창을 보지않음, 장바구니, 아이디 자동저장등 기능에 사용&lt;/p&gt;
+&lt;h3&gt;세션 ( Session )&lt;/h3&gt;
+&lt;p&gt;쿠키를 기반하지만, 서버측에서 관리되기 때문에 웹에서만 사용 가능 &lt;br&gt;
+클라이언트가 요청시 서버의 엔진이 클라이언트에게 유일한 세션 ID를 부여 &lt;br&gt;
+브라우저가 종료되면 인증상태가 종료되며, 서버측에 관리되어 보안은 좋지만 사용자가 많을 수록 서버메모리에 있어 비효율적 &lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;쿠키와 세션을 사용하는 이유 ? &lt;br&gt;
+정보가 유지되지 않으면, 매번 페이지를 이동할 때마다 인증을 다시하거나, 상품을 선택했는데 구매 페이지에서 선택한 상품의 정보가 없는 일이 발생 &lt;br&gt;
+큰 차이점은, 쿠키는 로컬PC에 저장하고, 세션은 서버에 저장&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;쿠키 동작순서&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;클라이언트 페이지 요청&lt;/li&gt;
+&lt;li&gt;웹서버 쿠키생성&lt;/li&gt;
+&lt;li&gt;쿠키 정보를 담아 HTTP 응답을 줄 때 클라이언트에게 전달&lt;/li&gt;
+&lt;li&gt;클라이언트는 받은 쿠키정보를 로컬 PC에 저장했다가 서버에 다시 요청시 쿠키와 함께 전송&lt;/li&gt;
+&lt;li&gt;서버는 쿠키가 있는 경우 요청페이지와 함께 쿠키를 다시 전송&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;세션 동작 순서&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;클라이언트 페이지 요청&lt;/li&gt;
+&lt;li&gt;서버는 클라이언트의 REQUEST_HEADER 필드인 쿠키를 확인하고 클라이언트가 세션ID를 보냈는지 확인&lt;/li&gt;
+&lt;li&gt;세션 ID가 존재하지 않으면 세션ID 생성 후 클라이언트에게 전달&lt;/li&gt;
+&lt;li&gt;서버에서 클라이언트로 돌려준 세션 ID를 쿠키를 사용해 서버에 저장 [ JSessionID ]&lt;/li&gt;
+&lt;li&gt;클라이언트는 재 접속시 쿠키를 이용해 세션ID를 서버에 전달&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;참조 :: &lt;a href=&quot;https://live-jh.tistory.com/45&quot;&gt;https://live-jh.tistory.com/45&lt;/a&gt;&lt;/p&gt;
+&lt;style class=&quot;grvsc-styles&quot;&gt;
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line &gt; * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: &apos; &apos;;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
+    content: &apos; &apos;;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[Distpatcher_Servlet 개념과 동작과정]]></title><description><![CDATA[Dispatcher_Servlet ? 디스패처 서블릿이란? HTTP 프로토콜로 들어오는 모든 요청을 가장 먼저 받아 적합한 컨트롤러에 위임해주는 Front Controller 디스패처 서블릿 장점 web.xml…]]></description><link>https://frenchruin.github.io/blog/dispatcher/</link><guid isPermaLink="false">https://frenchruin.github.io/blog/dispatcher/</guid><pubDate>Mon, 16 Oct 2023 03:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Dispatcher_Servlet ?&lt;/h2&gt;
 &lt;h3&gt;디스패처 서블릿이란?&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;HTTP 프로토콜로 들어오는 모든 요청을 가장 먼저 받아 적합한 컨트롤러에 위임해주는 Front Controller&lt;/p&gt;
