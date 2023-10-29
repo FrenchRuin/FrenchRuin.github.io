@@ -1,4 +1,199 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev_Lee's RSS Feed]]></title><description><![CDATA[Dev_Lee's Blog]]></description><link>https://frenchruin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 23 Oct 2023 12:20:57 GMT</lastBuildDate><item><title><![CDATA[재귀 함수와 스택 프레임]]></title><description><![CDATA[재귀 함수와 스택 프레임 코딩테스트를 준비하면서 DFS, BFS를 공부하게되어 재귀함수에 대해서 지식이 너무 없어서 한번 적어봅니다. 스택 프레임 ( Stack Frame…]]></description><link>https://frenchruin.github.io/blog/stackframe/</link><guid isPermaLink="false">https://frenchruin.github.io/blog/stackframe/</guid><pubDate>Mon, 23 Oct 2023 03:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;재귀 함수와 스택 프레임&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev_Lee's RSS Feed]]></title><description><![CDATA[Dev_Lee's Blog]]></description><link>https://frenchruin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 29 Oct 2023 11:25:11 GMT</lastBuildDate><item><title><![CDATA[Exception 정리]]></title><description><![CDATA[코틀린을 공부하면서 예외처리에 대한 내용이 나와, 이전에도 알고 있었던 내용이지만, 한번 정리하면 좋을 것 같아 포스팅합니다. Exception 자바에서의 예외는 크게 3가지로 구분할 수 있습니다. 체크 예외 ( Checked Exception…]]></description><link>https://frenchruin.github.io/blog/excepction/</link><guid isPermaLink="false">https://frenchruin.github.io/blog/excepction/</guid><pubDate>Sun, 29 Oct 2023 03:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;코틀린을 공부하면서 예외처리에 대한 내용이 나와, 이전에도 알고 있었던 내용이지만, 한번 정리하면 좋을 것 같아 포스팅합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;Exception&lt;/h2&gt;
+&lt;p&gt;자바에서의 예외는 크게 3가지로 구분할 수 있습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;체크 예외 ( Checked Exception )&lt;/li&gt;
+&lt;li&gt;에러 ( Error )&lt;/li&gt;
+&lt;li&gt;언체크 예외 ( Unchecked Exception )&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.34969325153374%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABuElEQVR42o1Sf2+bMBDt9/8+5L+tqrRO2tptHR1NIA0QHFDA/AjEFJzYvB0kSxMpVDvpBLbv3r17dzdKqSXItNZKnxnd6zxb66U31SxwdFlmWg9hV21/xHi8oUSFK9Z1QLlJMbefsXh9QS0qfGDdEdDvAfdjUWHo4c/zA8ynb8jS+H8AvTOGHbHSaGVLzApUVQWexHDdOTz3FVnGh7uy3GC3kxTbjTJUxwPWax8v1iPmzhOBZngvdEjOs5gYf8evn/eIiP1Bmu46YP8gZYPFYk5sEpwr0b9tqw0yvoY9s4aYijTdUaoeA5TUahIzzKYmtTijIWwHsGKr4MYSP6wADitRigZNnmPjuuC2jdL3UQdBhwP4O2DbNHDs32DBFEvfOrW0SiU+mS2+zDRuLYWY6uwjhmgyQTAxsDQMRIbRoShAa+VfrI3WfSE1eK9pb29UKElzxLygb0Hn9iQFTxKknF+2/G8px0wIQWxX4DxBuGIQdQ2QvvXXe7zd3WF7+xmtaR4Au84bXewPl44GoaIQ2rGhSEfluRdD8em/Ie+nIK45BZ68P5PewmNMBHEs/DAUC8YqKWVP7OEvlTubbFSMkfwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;dispatcher_servlet&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a14a893551d41828b8a3740a2fb4494a/a6d36/Exception_2.png&quot;
+        srcset=&quot;/static/a14a893551d41828b8a3740a2fb4494a/222b7/Exception_2.png 163w,
+/static/a14a893551d41828b8a3740a2fb4494a/ff46a/Exception_2.png 325w,
+/static/a14a893551d41828b8a3740a2fb4494a/a6d36/Exception_2.png 650w,
+/static/a14a893551d41828b8a3740a2fb4494a/e548f/Exception_2.png 975w,
+/static/a14a893551d41828b8a3740a2fb4494a/3c492/Exception_2.png 1300w,
+/static/a14a893551d41828b8a3740a2fb4494a/9e3ea/Exception_2.png 1503w&quot;
+        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;자바에서 에러, 예외 관련된 클래스들의 계층구조는 위와 같다. &lt;br/&gt;
+&lt;code&gt;Throwable&lt;/code&gt; 클래스를 기준으로 &lt;code&gt;Error&lt;/code&gt;, &lt;code&gt;Exception&lt;/code&gt; 클래스로 나뉘어 진다.&lt;/p&gt;
+&lt;h3&gt;Error ?&lt;/h3&gt;
+&lt;p&gt;에러는 시스템에 비정상적인 상황이 발생했을 경우에 발생한다. &lt;br/&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OOME ( Out Of Memory Error )&lt;/li&gt;
+&lt;li&gt;Stack Over Flow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;위 같이 처리할 수 있는 방법이나 복구할 수 있는 방법이 없습니다.&lt;/p&gt;
+&lt;h3&gt;Exception ?&lt;/h3&gt;
+&lt;p&gt;예외는 프로그램 실행 중에 개발자의 실수로 예기치 않은 상황이 발생했을 때를 말한다. &lt;br/&gt;
+예를들어, 배열의 범위를 벗어난 &lt;code&gt;ArrayIndexOutOfBoundsException&lt;/code&gt; 이나 &lt;code&gt;NullPointerException&lt;/code&gt; 이다. &lt;br/&gt;
+여기서 예외는 두가지로 나뉠 수 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Checked Exception&lt;/li&gt;
+&lt;li&gt;Unchecked Exception
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;RuntimeException&lt;/code&gt; 하위 클래스들이 &lt;code&gt;Unchecked Exception&lt;/code&gt; 이고 그외의 &lt;code&gt;Exception&lt;/code&gt; 하위의 클래스들을 &lt;code&gt;Checked Exception&lt;/code&gt;이라 칭한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Checked Exception ?&lt;/h4&gt;
+&lt;p&gt;체크 예외는 RuntimeException의 하위클래스가 아니면서, Exception 의 하위클래스 인것들이다. &lt;br/&gt;
+&lt;strong&gt;체크 예외의 특징에는 &lt;code&gt;Try Catch or Throw&lt;/code&gt; 를 해줘야 하는 특징이 있다.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;존재하지 않는 파일의 이름 입력 ( FileNotFoundException )&lt;/li&gt;
+&lt;li&gt;실수로 클래스의 이름을 잘못 입력 ( ClassNotFoundException )&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Unchecked Exception ?&lt;/h4&gt;
+&lt;p&gt;언체크 예외는 RuntimeException 의 하위클래스들을 의미 하고, 에러 처리를 강제하지 않는다.&lt;br&gt;
+&lt;strong&gt;말 그대로 실행중에 발생할 수 있는 예외를 의미 한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ArrayIndexOutOfBoundsException&lt;/li&gt;
+&lt;li&gt;NullPointerException&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;컴파일러가 에러처리를 확인하지 않는 RuntimeException 클래스들은 unchecked 예외라고 부르고
+예외처리를 확인하는 Exception 클래스들은 checked 예외라고 부릅니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;RollBack 여부&lt;/h3&gt;
+&lt;center&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Checked Exception&lt;/th&gt;
+&lt;th&gt;Unchecked Exception&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;처리여부&lt;/td&gt;
+&lt;td&gt;반드시 예외 처리&lt;/td&gt;
+&lt;td&gt;예외 처리 강제 X&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;확인시점&lt;/td&gt;
+&lt;td&gt;컴파일 단계&lt;/td&gt;
+&lt;td&gt;실행 단계&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;트랜잭션 처리&lt;/td&gt;
+&lt;td&gt;ROLL BACK 하지 않음&lt;/td&gt;
+&lt;td&gt;ROLL BACK 수행&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+&lt;hr&gt;
+&lt;p&gt;출처 :: &lt;a href=&quot;https://devlog-wjdrbs96.tistory.com/351&quot;&gt;https://devlog-wjdrbs96.tistory.com/351&lt;/a&gt;&lt;/p&gt;
+&lt;style class=&quot;grvsc-styles&quot;&gt;
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line &gt; * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: &apos; &apos;;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
+    content: &apos; &apos;;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[재귀 함수와 스택 프레임]]></title><description><![CDATA[재귀 함수와 스택 프레임 코딩테스트를 준비하면서 DFS, BFS를 공부하게되어 재귀함수에 대해서 지식이 너무 없어서 한번 적어봅니다. 스택 프레임 ( Stack Frame…]]></description><link>https://frenchruin.github.io/blog/stackframe/</link><guid isPermaLink="false">https://frenchruin.github.io/blog/stackframe/</guid><pubDate>Mon, 23 Oct 2023 03:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;재귀 함수와 스택 프레임&lt;/h2&gt;
 &lt;p&gt;코딩테스트를 준비하면서 DFS, BFS를 공부하게되어 재귀함수에 대해서 지식이 너무 없어서 한번 적어봅니다.&lt;/p&gt;
 &lt;h3&gt;스택 프레임 ( Stack Frame )&lt;/h3&gt;
 &lt;p&gt;스택 프레임이란 메모리의 스택 영역은 함수의 호출과 관계되는 &lt;strong&gt;지역버눗와 매개변수가 저장되는 영역&lt;/strong&gt; &lt;br&gt;
